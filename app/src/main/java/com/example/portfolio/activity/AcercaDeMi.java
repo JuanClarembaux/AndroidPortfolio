@@ -1,15 +1,20 @@
 package com.example.portfolio.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.portfolio.R;
-import com.example.portfolio.User;
+import com.example.portfolio.model.User;
 
 public class AcercaDeMi extends AppCompatActivity {   
 
@@ -34,6 +39,8 @@ public class AcercaDeMi extends AppCompatActivity {
         String param_texto = extras.getString("USERNAME");
         visitorUsername.setText(param_texto);
 
+        registerForContextMenu(visitorUsername);
+
         User user = new User(1, "Juan Cruz Clarembaux", "juanclarembaux12@gmail.com", 15409806);
         userName.setText(user.userName);
         userMail.setText(user.userMail);
@@ -55,5 +62,23 @@ public class AcercaDeMi extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_context, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item){
+        int numero = item.getItemId();
+        switch(numero){
+            case R.id.menu_context_back:
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onContextItemSelected(item);
     }
 }

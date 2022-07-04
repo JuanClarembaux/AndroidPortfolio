@@ -1,19 +1,19 @@
 package com.example.portfolio.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.portfolio.Project;
+import com.example.portfolio.model.Project;
 import com.example.portfolio.R;
 
 import java.util.ArrayList;
@@ -37,6 +37,7 @@ public class Proyectos extends AppCompatActivity {
 
         ArrayAdapter<Project> projectsAdapter = new ArrayAdapter<Project>(this, android.R.layout.simple_list_item_1, projectsList);
         projects_lv.setAdapter(projectsAdapter);
+        registerForContextMenu(projects_lv);
 
         projects_lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> projectsAdapter, View view, int position, long id){
@@ -46,5 +47,22 @@ public class Proyectos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_context, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item){
+        int numero = item.getItemId();
+        switch(numero){
+            case R.id.menu_context_back:
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onContextItemSelected(item);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.portfolio;
+package com.example.portfolio.model;
 
 public class User {
     public int userID;
