@@ -3,13 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_acerca_de_mi.xml" value="0.2734375" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/gmail_svgrepo_com.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/home_svgrepo_com.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_button.xml" value="0.25" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_editText.xml" value="0.2965" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_edittext.xml" value="0.2965" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/rounded_corner.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_aboutme.xml" value="0.264" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_acerca_de_mi.xml" value="0.33" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_proyectos.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_projectcreate.xml" value="0.264" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_projectdetail.xml" value="0.264" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_proyectos.xml" value="0.264" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_register.xml" value="0.3859375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/menu.xml" value="0.2734375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/menu_context.xml" value="0.259375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/menu/menu.xml" value="0.264" />
-        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/menu/menu_context.xml" value="0.1" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/menu/menu_context.xml" value="0.33" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.295" />
       </map>
     </option>
   </component>

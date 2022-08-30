@@ -13,20 +13,18 @@ import android.widget.EditText;
 
 import com.example.portfolio.R;
 
-public class MainActivity extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
-    private Button pantallaAcercaDeMi;
-    private Button pantallaProyectos;
-    private EditText ingreseNombre;
+    private Button projects;
+    private Button aboutme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
-        pantallaAcercaDeMi=findViewById(R.id.am_acercaDeMi_bt);
-        pantallaProyectos=findViewById(R.id.am_proyectos_bt);
-        ingreseNombre=findViewById(R.id.am_ingrese_nombre_et);
+        projects=findViewById(R.id.ah_projects_bt);
+        aboutme=findViewById(R.id.ah_aboutme_bt);
 
         this.findViews();
 
@@ -43,23 +41,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_settings:
-                Intent intent = new Intent(getBaseContext(), AcercaDeMi.class);
+                Intent intent = new Intent(getBaseContext(), AboutMe.class);
                 startActivity(intent);
             case R.id.menu_exit:
-                Intent i = new Intent(getBaseContext(), Proyectos.class);
+                Intent i = new Intent(getBaseContext(), Project.class);
                 startActivity(i);
         }
         return true;
     }
 
     private void findViews(){
-        pantallaAcercaDeMi.setOnClickListener(view ->{
-            Intent intent = new Intent(getBaseContext(), AcercaDeMi.class);
-            intent.putExtra("USERNAME", ingreseNombre.getText().toString());
+        projects.setOnClickListener(view ->{
+            Intent intent = new Intent(getBaseContext(), Project.class);
             startActivity(intent);
         });
-        pantallaProyectos.setOnClickListener(view ->{
-            Intent intent = new Intent(getBaseContext(), Proyectos.class);
+        aboutme.setOnClickListener(view ->{
+            Intent intent = new Intent(getBaseContext(), AboutMe.class);
             startActivity(intent);
         });
     }

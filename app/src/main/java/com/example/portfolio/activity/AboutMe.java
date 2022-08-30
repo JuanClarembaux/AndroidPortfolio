@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 import com.example.portfolio.R;
 import com.example.portfolio.model.User;
 
-public class AcercaDeMi extends AppCompatActivity {   
+public class AboutMe extends AppCompatActivity {
 
     @SuppressLint("QueryPermissionsNeeded")
     @Override
@@ -28,25 +26,25 @@ public class AcercaDeMi extends AppCompatActivity {
         TextView userPhone;
         
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acerca_de_mi);
+        setContentView(R.layout.activity_aboutme);
 
-        visitorUsername=findViewById(R.id.acd_nombre_tv);
+        /*visitorUsername=findViewById(R.id.acd_nombre_tv);
         userName=findViewById(R.id.acd_userName_tv);
         userMail=findViewById(R.id.acd_userMail_tv);
-        userPhone=findViewById(R.id.acd_userPhone_tv);
+        userPhone=findViewById(R.id.acd_userPhone_tv);*/
 
         Bundle extras = getIntent().getExtras();
         String param_texto = extras.getString("USERNAME");
-        visitorUsername.setText(param_texto);
+        //visitorUsername.setText(param_texto);
 
-        registerForContextMenu(visitorUsername);
+        //registerForContextMenu(visitorUsername);
 
         User user = new User(1, "Juan Cruz Clarembaux", "juanclarembaux12@gmail.com", 15409806);
-        userName.setText(user.userName);
-        userMail.setText(user.userMail);
-        userPhone.setText(String.valueOf(user.userPhone));
+        //userName.setText(user.userName);
+        //userMail.setText(user.userMail);
+        //userPhone.setText(String.valueOf(user.userPhone));
 
-        userMail.setOnClickListener(view -> {
+        /*userMail.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL, user.userMail);
@@ -61,7 +59,7 @@ public class AcercaDeMi extends AppCompatActivity {
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override
@@ -75,7 +73,7 @@ public class AcercaDeMi extends AppCompatActivity {
         int numero = item.getItemId();
         switch(numero){
             case R.id.menu_context_back:
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent intent = new Intent(getBaseContext(), Home.class);
                 startActivity(intent);
                 return true;
         }

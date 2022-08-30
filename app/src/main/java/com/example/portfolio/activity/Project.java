@@ -13,29 +13,28 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.portfolio.model.Project;
 import com.example.portfolio.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Proyectos extends AppCompatActivity {
+public class Project extends AppCompatActivity {
 
     private ListView projects_lv;
-    private List<Project> projectsList = new ArrayList<>();
+    private List<com.example.portfolio.model.Project> projectsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proyectos);
+        setContentView(R.layout.activity_project);
         projects_lv = findViewById(R.id.ap_proyectos_lv);
 
-        projectsList.add(new Project(1, "AndroidPortfolio", "https://github.com/JuanClarembaux/AndroidPortfolio"));
-        projectsList.add(new Project(2, "AndroidCalculatorAndConversor", "https://github.com/JuanClarembaux/AndroidPortfolio"));
-        projectsList.add(new Project(3, "WebApplication_Blog", "https://github.com/JuanClarembaux/AndroidCalculatorAndConversor"));
-        projectsList.add(new Project(4, "Bootcamp.Backend.C-.NET", "https://github.com/JuanClarembaux/Bootcamp.Backend.C-.NET"));
+        projectsList.add(new com.example.portfolio.model.Project(1, "AndroidPortfolio", "https://github.com/JuanClarembaux/AndroidPortfolio"));
+        projectsList.add(new com.example.portfolio.model.Project(2, "AndroidCalculatorAndConversor", "https://github.com/JuanClarembaux/AndroidPortfolio"));
+        projectsList.add(new com.example.portfolio.model.Project(3, "WebApplication_Blog", "https://github.com/JuanClarembaux/AndroidCalculatorAndConversor"));
+        projectsList.add(new com.example.portfolio.model.Project(4, "Bootcamp.Backend.C-.NET", "https://github.com/JuanClarembaux/Bootcamp.Backend.C-.NET"));
 
-        ArrayAdapter<Project> projectsAdapter = new ArrayAdapter<Project>(this, android.R.layout.simple_list_item_1, projectsList);
+        ArrayAdapter<com.example.portfolio.model.Project> projectsAdapter = new ArrayAdapter<com.example.portfolio.model.Project>(this, android.R.layout.simple_list_item_1, projectsList);
         projects_lv.setAdapter(projectsAdapter);
         registerForContextMenu(projects_lv);
 
@@ -59,7 +58,7 @@ public class Proyectos extends AppCompatActivity {
         int numero = item.getItemId();
         switch(numero){
             case R.id.menu_context_back:
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                Intent intent = new Intent(getBaseContext(), Home.class);
                 startActivity(intent);
                 return true;
         }

@@ -4,55 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
-
-    <TextView
-        android:id="@+id/am_bienvenido_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido a mi portfolio"
-        android:textSize="28dp"
-        app:layout_constraintTop_toTopOf="@+id/topguideline"
-        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="70dp"
-    />
+    tools:context=".activity.Login">
 
     <EditText
-        android:id="@+id/am_ingrese_nombre_et"
+        android:id="@+id/al_insertUsername_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su nombre"
-        android:textSize="28dp"
-        app:layout_constraintTop_toTopOf="@+id/am_bienvenido_tv"
-        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="70dp"
-    />
-
-    <Button
-        android:id="@+id/am_acercaDeMi_bt"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:text="Acerca de mi"
-        android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/am_bienvenido_tv"
-        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toStartOf="@+id/leftguideline"
         android:layout_marginTop="150dp"
-    />
-    <Button
-        android:id="@+id/am_proyectos_bt"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:text="Proyectos"
-        android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/am_acercaDeMi_bt"
+        android:background="@drawable/round_edittext"
+        android:hint="Insert username"
+        android:textSize="24dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="@+id/topguideline" />
+
+    <EditText
+        android:id="@+id/al_insertPassword_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/round_edittext"
+        android:hint="Insert password"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
+        app:layout_constraintStart_toStartOf="@+id/leftguideline"
+        app:layout_constraintTop_toBottomOf="@+id/al_insertUsername_et"
     />
 
+    <Button
+        android:id="@+id/al_login_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/round_button"
+        android:text="Login"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/al_register_bt"
+        app:layout_constraintStart_toStartOf="@+id/leftguideline"
+        app:layout_constraintTop_toBottomOf="@+id/al_insertPassword_et"
+        />
+
+    <Button
+        android:id="@+id/al_register_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_marginLeft="10dp"
+        android:text="Register"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        android:layout_marginTop="180dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
+        app:layout_constraintStart_toEndOf="@+id/al_login_bt"
+        app:layout_constraintTop_toBottomOf="@+id/al_insertPassword_et" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftguideline"

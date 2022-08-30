@@ -14,19 +14,39 @@
         android:theme="@style/Theme.Portfolio"
         tools:targetApi="31">
         <activity
-            android:name=".activity.Proyectos"
+            android:name=".activity.ProjectCreate"
             android:exported="false" />
         <activity
-            android:name=".activity.AcercaDeMi"
+            android:name=".activity.ProjectDetail"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.Register"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Project"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AboutMe"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Home"
+            android:exported="false">
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
     </application>
 
