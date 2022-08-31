@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.portfolio.R;
@@ -16,50 +18,50 @@ import com.example.portfolio.model.User;
 
 public class AboutMe extends AppCompatActivity {
 
-    @SuppressLint("QueryPermissionsNeeded")
+    TextView fullname;
+    TextView ocupation;
+    ImageView linkedin;
+    ImageView gmail;
+    ImageView github;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        TextView visitorUsername;
-        TextView userName;
-        TextView userMail;
-        TextView userPhone;
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutme);
 
-        /*visitorUsername=findViewById(R.id.acd_nombre_tv);
-        userName=findViewById(R.id.acd_userName_tv);
-        userMail=findViewById(R.id.acd_userMail_tv);
-        userPhone=findViewById(R.id.acd_userPhone_tv);*/
+        fullname=findViewById(R.id.aam_fullnameData_tv);
+        ocupation=findViewById(R.id.aam_ocupationData_tv);
+        linkedin=findViewById(R.id.aam_linkedin_imageView);
+        gmail=findViewById(R.id.aam_gmail_imageView);
+        github=findViewById(R.id.aam_github_imageView);
 
-        Bundle extras = getIntent().getExtras();
-        String param_texto = extras.getString("USERNAME");
-        //visitorUsername.setText(param_texto);
+        this.findViews();
+    }
 
-        //registerForContextMenu(visitorUsername);
-
-        User user = new User(1, "Juan Cruz Clarembaux", "juanclarembaux12@gmail.com", 15409806);
-        //userName.setText(user.userName);
-        //userMail.setText(user.userMail);
-        //userPhone.setText(String.valueOf(user.userPhone));
-
-        /*userMail.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto:"));
-            intent.putExtra(Intent.EXTRA_EMAIL, user.userMail);
-            if (intent.resolveActivity(getPackageManager()) != null) {
+    private void findViews(){
+        linkedin.setOnClickListener(view ->{
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.linkedin.com/in/juan-cruz-clarembaux-79a345215/"));
                 startActivity(intent);
-            }
         });
-
-        userPhone.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + user.userPhone));
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
-            }
-        });*/
+        gmail.setOnClickListener(view ->{
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, "juanclarembaux12@gmail.com");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+        });
+        github.setOnClickListener(view ->{
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://github.com/JuanClarembaux"));
+            startActivity(intent);
+        });
+        fullname.setText("Juan Cruz Clarembaux");
+        ocupation.setText("Developer");
     }
 
     @Override

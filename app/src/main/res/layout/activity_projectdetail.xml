@@ -7,10 +7,9 @@
     tools:context=".activity.ProjectDetail">
 
     <ImageView
-        android:id="@+id/ah_home_imageView"
+        android:id="@+id/ap_project_imageView"
         android:layout_width="350dp"
         android:layout_height="300dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         app:layout_constraintTop_toBottomOf="@+id/topguideline"
@@ -18,111 +17,112 @@
     />
 
     <TextView
-        android:id="@+id/aam_information_tv"
+        android:id="@+id/ap_information_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Information"
         android:textSize="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/ah_home_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ap_project_imageView"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
     />
 
     <TextView
-        android:id="@+id/aam_projectname_tv"
+        android:id="@+id/ap_projectname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Project name:"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_information_tv"
-        app:layout_constraintEnd_toStartOf="@+id/aam_projectnameData_tv"
-        app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="30dp"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_information_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_projectnameData_tv"
+        app:layout_constraintStart_toEndOf="@id/leftguideline"
     />
+
     <TextView
-        android:id="@+id/aam_projectnameData_tv"
+        android:id="@+id/ap_projectnameData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_information_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_information_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/aam_projectname_tv"
+        app:layout_constraintStart_toEndOf="@+id/ap_projectname_tv"
         android:layout_marginTop="30dp"
     />
 
     <TextView
-        android:id="@+id/aam_ocupation_tv"
+        android:id="@+id/ap_projectDescription_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description:"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_projectname_tv"
-        app:layout_constraintEnd_toStartOf="@+id/aam_ocupationData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectname_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_projectDescriptionData_tv"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         android:layout_marginTop="20dp"
     />
     <TextView
-        android:id="@+id/aam_ocupationData_tv"
+        android:id="@+id/ap_projectDescriptionData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_projectnameData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectnameData_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/aam_ocupation_tv"
+        app:layout_constraintStart_toEndOf="@+id/ap_projectDescription_tv"
         android:layout_marginTop="20dp"
     />
 
     <TextView
-        android:id="@+id/aam_owner_tv"
+        android:id="@+id/ap_projectOwner_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Owner:"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_ocupation_tv"
-        app:layout_constraintEnd_toStartOf="@+id/aam_ownerData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectDescription_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_projectOwnerData_tv"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         android:layout_marginTop="20dp"
     />
     <TextView
-        android:id="@+id/aam_ownerData_tv"
+        android:id="@+id/ap_projectOwnerData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_ocupationData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectDescriptionData_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/aam_owner_tv"
+        app:layout_constraintStart_toEndOf="@+id/ap_projectOwner_tv"
         android:layout_marginTop="20dp"
     />
 
     <TextView
-        android:id="@+id/aam_collaborators_tv"
+        android:id="@+id/ap_projectCollaborators_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Collaborators:"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_owner_tv"
-        app:layout_constraintEnd_toStartOf="@+id/aam_collaboratorsData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectOwner_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_projectCollaboratorsData_tv"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         android:layout_marginTop="20dp"
         />
     <TextView
-        android:id="@+id/aam_collaboratorsData_tv"
+        android:id="@+id/ap_projectCollaboratorsData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_ownerData_tv"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectOwnerData_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/aam_ocupation_tv"
+        app:layout_constraintStart_toEndOf="@+id/ap_projectCollaborators_tv"
         android:layout_marginTop="20dp"
         />
 
     <ImageView
-        android:id="@+id/aam_github_imageView"
+        android:id="@+id/ap_github_imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/aam_collaborators_tv"
+        app:layout_constraintTop_toBottomOf="@+id/ap_projectCollaborators_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toEndOf="@+id/leftguideline"
         app:srcCompat="@drawable/github_svgrepo_com"

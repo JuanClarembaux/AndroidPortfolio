@@ -12,41 +12,42 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.portfolio.R;
+import com.example.portfolio.model.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project extends AppCompatActivity {
+public class Project extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
-    private ListView projects_lv;
-    private List<com.example.portfolio.model.Project> projectsList = new ArrayList<>();
+    /*private ListView projects_lv;
+    private List<com.example.portfolio.model.Project> projectsList = new ArrayList<>();*/
+
+    private ListView projects;
+    private List<com.example.portfolio.model.Project> mListProjects = new ArrayList<>();
+    ListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project);
-        projects_lv = findViewById(R.id.ap_proyectos_lv);
 
-        projectsList.add(new com.example.portfolio.model.Project(1, "AndroidPortfolio", "https://github.com/JuanClarembaux/AndroidPortfolio"));
-        projectsList.add(new com.example.portfolio.model.Project(2, "AndroidCalculatorAndConversor", "https://github.com/JuanClarembaux/AndroidPortfolio"));
-        projectsList.add(new com.example.portfolio.model.Project(3, "WebApplication_Blog", "https://github.com/JuanClarembaux/AndroidCalculatorAndConversor"));
-        projectsList.add(new com.example.portfolio.model.Project(4, "Bootcamp.Backend.C-.NET", "https://github.com/JuanClarembaux/Bootcamp.Backend.C-.NET"));
+        projects = findViewById(R.id.ap_proyectos_lv);
+        projects.setOnItemClickListener(this);
 
-        ArrayAdapter<com.example.portfolio.model.Project> projectsAdapter = new ArrayAdapter<com.example.portfolio.model.Project>(this, android.R.layout.simple_list_item_1, projectsList);
-        projects_lv.setAdapter(projectsAdapter);
-        registerForContextMenu(projects_lv);
+        mListProjects.add(new com.example.portfolio.model.Project(1, "AndroidPortfolio", "https://github.com/JuanClarembaux/AndroidPortfolio", "C#", "blabla", "Juan Cruz Clarembaux", "None", "Web"));
+        mListProjects.add(new com.example.portfolio.model.Project(2, "AndroidCalculatorAndConversor", "https://github.com/JuanClarembaux/AndroidPortfolio", "C#", "blabla", "Juan Cruz Clarembaux", "None", "Web"));
+        mListProjects.add(new com.example.portfolio.model.Project(3, "WebApplication_Blog", "https://github.com/JuanClarembaux/AndroidCalculatorAndConversor", "C#", "blabla", "Juan Cruz Clarembaux", "None", "Web"));
+        mListProjects.add(new com.example.portfolio.model.Project(4, "Bootcamp.Backend.C-.NET", "https://github.com/JuanClarembaux/Bootcamp.Backend.C-.NET", "C#", "blabla", "Juan Cruz Clarembaux", "None", "Web"));
+        mListProjects.add(new com.example.portfolio.model.Project(5, "WebApplication_Blog", "https://github.com/JuanClarembaux/AndroidCalculatorAndConversor", "C#", "blabla", "Juan Cruz Clarembaux", "None", "Web"));
 
-        projects_lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public void onItemClick(AdapterView<?> projectsAdapter, View view, int position, long id){
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(projectsList.get(position).projectURL));
-                startActivity(intent);
-            }
-        });
+        mAdapter = new ListAdapter(this, R.layout.project_listview_model, mListProjects);
+
+        projects.setAdapter(mAdapter);
     }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -63,5 +64,18 @@ public class Project extends AppCompatActivity {
                 return true;
         }
         return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        Intent intent = new Intent(this, ProjectDetail.class);
+        intent.putExtra("projectName", mAdapter.getItem(position).getProjectName());
+        //intent.putExtra("projectLanguage", mAdapter.getItem(position).getProjectLanguage());
+        intent.putExtra("projectDescription", mAdapter.getItem(position).getProjectDescription());
+        intent.putExtra("projectOwner", mAdapter.getItem(position).getProjectOwner());
+        intent.putExtra("projectCollaborators", mAdapter.getItem(position).getProjectCollaborators());
+        //intent.putExtra("projectType", mAdapter.getItem(position).getProjectType());
+        intent.putExtra("projectURL", mAdapter.getItem(position).getProjectURL());
+        startActivity(intent);
     }
 }
