@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,17 +15,17 @@ import com.example.portfolio.R;
 import java.sql.Date;
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<Project> {
+public class ListAdapterUser extends ArrayAdapter<DBUser> {
 
-    private List<Project> projectList;
+    private List<DBUser> DBUserList;
     private Context mContext;
     private int resourceLayout;
     private long fechaactual = System.currentTimeMillis();
     private Date date = new Date(fechaactual);
 
-    public ListAdapter(@NonNull Context context, int resource, List<Project> objects) {
+    public ListAdapterUser(@NonNull Context context, int resource, List<DBUser> objects) {
         super(context, resource, objects);
-        this.projectList = objects;
+        this.DBUserList = objects;
         this.mContext = context;
         this.resourceLayout = resource;
     }
@@ -38,13 +37,13 @@ public class ListAdapter extends ArrayAdapter<Project> {
 
         if(view == null) view = LayoutInflater.from(mContext).inflate(resourceLayout, null);
 
-        Project project = projectList.get(position);
+        DBUser DBUser = DBUserList.get(position);
 
         TextView namedata = view.findViewById(R.id.plm_namedata_tv);
-        namedata.setText(project.getProjectName());
+        namedata.setText(DBUser.getApellidoUsuario());
         TextView languagedata = view.findViewById(R.id.plm_languagedata_tv);
-        languagedata.setText(project.getProjectLanguage());
-        TextView loaddatedata = view.findViewById(R.id.plm_loaddatedata_tv);
+        languagedata.setText(DBUser.getNombreUsuario());
+        TextView loaddatedata = view.findViewById(R.id.ap_createdAtData_tv);
         loaddatedata.setText(String.valueOf(date));
 
         return view;

@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ap_project_imageView"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         app:layout_constraintTop_toBottomOf="@+id/topguideline"
@@ -32,8 +32,8 @@
         android:id="@+id/ap_projectname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Project name:"
+        android:layout_marginTop="25dp"
+        android:text="Nombre:"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/ap_information_tv"
         app:layout_constraintEnd_toStartOf="@+id/ap_projectnameData_tv"
@@ -48,14 +48,14 @@
         app:layout_constraintTop_toBottomOf="@+id/ap_information_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toEndOf="@+id/ap_projectname_tv"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
     />
 
     <TextView
         android:id="@+id/ap_projectDescription_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:"
+        android:text="Descripcion:"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/ap_projectname_tv"
         app:layout_constraintEnd_toStartOf="@+id/ap_projectDescriptionData_tv"
@@ -74,46 +74,90 @@
     />
 
     <TextView
-        android:id="@+id/ap_projectOwner_tv"
+        android:id="@+id/ap_language_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Owner:"
+        android:text="Lenguaje:"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/ap_projectDescription_tv"
-        app:layout_constraintEnd_toStartOf="@+id/ap_projectOwnerData_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_languageData_tv"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
     />
     <TextView
-        android:id="@+id/ap_projectOwnerData_tv"
+        android:id="@+id/ap_languageData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/ap_projectDescriptionData_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/ap_projectOwner_tv"
-        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/ap_language_tv"
+        android:layout_marginTop="40dp"
     />
 
     <TextView
-        android:id="@+id/ap_projectCollaborators_tv"
+        android:id="@+id/ap_createdAt_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Collaborators:"
+        android:text="Creado:"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/ap_projectOwner_tv"
-        app:layout_constraintEnd_toStartOf="@+id/ap_projectCollaboratorsData_tv"
+        app:layout_constraintTop_toBottomOf="@+id/ap_language_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_createdAtData_tv"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
         android:layout_marginTop="20dp"
         />
     <TextView
-        android:id="@+id/ap_projectCollaboratorsData_tv"
+        android:id="@+id/ap_createdAtData_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/ap_projectOwnerData_tv"
+        app:layout_constraintTop_toBottomOf="@+id/ap_languageData_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toEndOf="@+id/ap_projectCollaborators_tv"
+        app:layout_constraintStart_toEndOf="@+id/ap_createdAt_tv"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/ap_updatedAt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modificado:"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_createdAt_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_updatedAtData_tv"
+        app:layout_constraintStart_toStartOf="@+id/leftguideline"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/ap_updatedAtData_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_createdAtData_tv"
+        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
+        app:layout_constraintStart_toEndOf="@+id/ap_updatedAt_tv"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/ap_pushedAt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ultimo push:"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_updatedAt_tv"
+        app:layout_constraintEnd_toStartOf="@+id/ap_pushedAtData_tv"
+        app:layout_constraintStart_toStartOf="@+id/leftguideline"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/ap_pushedAtData_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_updatedAtData_tv"
+        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
+        app:layout_constraintStart_toEndOf="@+id/ap_pushedAt_tv"
         android:layout_marginTop="20dp"
         />
 
@@ -121,8 +165,8 @@
         android:id="@+id/ap_github_imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/ap_projectCollaborators_tv"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/ap_pushedAt_tv"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toEndOf="@+id/leftguideline"
         app:srcCompat="@drawable/github_svgrepo_com"

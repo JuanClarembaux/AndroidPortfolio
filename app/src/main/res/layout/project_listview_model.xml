@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="105dp">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/plm_nametittle_tv"
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        android:text="Name:"
+        android:text="Nombre:"
         android:textSize="16dp" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_below="@id/plm_nametittle_tv"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
-        android:text="Language:"
+        android:text="Lenguaje:"
         android:textSize="16dp" />
 
     <TextView
@@ -43,23 +43,43 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/plm_loaddatetittle_tv"
+        android:id="@+id/plm_createdatetittle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/plm_languagetittle_tv"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
-        android:text="Load Date:"
+        android:text="Creado:"
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/plm_loaddatedata_tv"
+        android:id="@+id/plm_createdatedata_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/plm_languagedata_tv"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@id/plm_loaddatetittle_tv"
+        android:layout_toRightOf="@id/plm_createdatetittle_tv"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/plm_updatedatetittle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plm_createdatetittle_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Modificado:"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/plm_updatedatedata_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plm_createdatedata_tv"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/plm_createdatetittle_tv"
         android:textSize="16dp" />
 
     <ImageView

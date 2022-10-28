@@ -21,13 +21,17 @@ public class ProjectDetail extends AppCompatActivity {
 
 
         TextView projectNameData = findViewById(R.id.ap_projectnameData_tv);
-        projectNameData.setText(getIntent().getStringExtra("projectName"));
+        projectNameData.setText(getIntent().getStringExtra("name"));
         TextView projectDescriptionData = findViewById(R.id.ap_projectDescriptionData_tv);
-        projectDescriptionData.setText(getIntent().getStringExtra("projectDescription"));
-        TextView projectOwnerData = findViewById(R.id.ap_projectOwnerData_tv);
-        projectOwnerData.setText(getIntent().getStringExtra("projectOwner"));
-        TextView projectCollaboratorsData = findViewById(R.id.ap_projectCollaboratorsData_tv);
-        projectCollaboratorsData.setText(getIntent().getStringExtra("projectCollaborators"));
+        projectDescriptionData.setText(getIntent().getStringExtra("description"));
+        TextView projectLanguageData = findViewById(R.id.ap_languageData_tv);
+        projectLanguageData.setText(getIntent().getStringExtra("language"));
+        TextView projectCreatedAtData = findViewById(R.id.ap_createdAtData_tv);
+        projectCreatedAtData.setText(getIntent().getStringExtra("created_at"));
+        TextView projectUpdatedAtData = findViewById(R.id.ap_updatedAtData_tv);
+        projectUpdatedAtData.setText(getIntent().getStringExtra("updated_at"));
+        TextView projectPushedAtData = findViewById(R.id.ap_pushedAtData_tv);
+        projectPushedAtData.setText(getIntent().getStringExtra("pushed_at"));
         github_img = findViewById(R.id.ap_github_imageView);
 
         this.findViews();
@@ -36,7 +40,7 @@ public class ProjectDetail extends AppCompatActivity {
         github_img.setOnClickListener(view ->{
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getIntent().getStringExtra("projectURL")));
+            intent.setData(Uri.parse(getIntent().getStringExtra("html_url")));
             startActivity(intent);
         });
     }
