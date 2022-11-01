@@ -4,43 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.Project">
 
-    <ListView
-        android:id="@+id/ap_proyectos_lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/topguideline"
-        app:layout_constraintEnd_toStartOf="@+id/rightguideline"
-        app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        ></ListView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftguideline"
+    <TextView
+        android:id="@+id/alr_tittle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="390dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Lista Repos"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightguideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="390dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/topguideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="40dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottomguideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="690dp" />
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/alr_list_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alr_tittle_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

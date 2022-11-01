@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/c_sharp_svgrepo_com.xml" value="0.3155" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/gmail_svgrepo_com.xml" value="0.295" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/home_svgrepo_com.xml" value="0.295" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.295" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/profile_user_svgrepo_com.xml" value="0.3155" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_button.xml" value="0.25" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_editText.xml" value="0.2965" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/drawable/round_edittext.xml" value="0.2965" />
@@ -14,13 +16,16 @@
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_aboutme.xml" value="0.33" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_acerca_de_mi.xml" value="0.33" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_list_repos.xml" value="0.33" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_profile_edit.xml" value="0.3859375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_project.xml" value="0.3859375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_projectcreate.xml" value="0.264" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_projectdetail.xml" value="0.5" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_proyectos.xml" value="0.264" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/activity_register.xml" value="0.3859375" />
+        <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/list_element.xml" value="0.5" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/menu.xml" value="0.2734375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/menu_context.xml" value="0.259375" />
         <entry key="..\:/Users/juanc/AndroidStudioProjects/Portfolio/app/src/main/res/layout/project_listview_model.xml" value="0.3848958333333333" />

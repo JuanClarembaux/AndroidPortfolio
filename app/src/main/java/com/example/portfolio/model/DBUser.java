@@ -13,7 +13,22 @@ public class DBUser {
     public String updatedAt;
 
     public DBUser(){}
-    public DBUser(int idUsuario, String nombreUsuario, String apellidoUsuario, String ocupacionUsuario, String gmailUsuario, String linkedinUsuario, String githubUsuario, String contrasenaUsuario, String createdAt, String updatedAt) {
+    public  DBUser(String gmailUsuario, String contrasenaUsuario){
+        this.gmailUsuario = gmailUsuario;
+        this.contrasenaUsuario = contrasenaUsuario;
+    }
+    public DBUser(String nombreUsuario, String apellidoUsuario, String ocupacionUsuario, String gmailUsuario,
+                  String linkedinUsuario, String githubUsuario, String contrasenaUsuario){
+        this.nombreUsuario = nombreUsuario;
+        this.apellidoUsuario = apellidoUsuario;
+        this.ocupacionUsuario = ocupacionUsuario;
+        this.gmailUsuario = gmailUsuario;
+        this.linkedinUsuario = linkedinUsuario;
+        this.githubUsuario = githubUsuario;
+        this.contrasenaUsuario = contrasenaUsuario;
+    }
+    public DBUser(int idUsuario, String nombreUsuario, String apellidoUsuario, String ocupacionUsuario, String gmailUsuario,
+                  String linkedinUsuario, String githubUsuario, String contrasenaUsuario, String createdAt, String updatedAt) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;

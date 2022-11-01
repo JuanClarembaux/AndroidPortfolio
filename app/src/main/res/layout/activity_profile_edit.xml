@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Register">
+    tools:context=".activity.ProfileEdit">
 
     <EditText
-        android:id="@+id/ar_insertSurname_et"
+        android:id="@+id/ape_insertSurname_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="@+id/topguideline" />
 
     <EditText
-        android:id="@+id/ar_insertName_et"
+        android:id="@+id/ape_insertName_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -30,10 +30,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertSurname_et"
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertSurname_et"
         />
     <EditText
-        android:id="@+id/ar_insertOcupation_et"
+        android:id="@+id/ape_insertOcupation_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -43,10 +43,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertName_et" />
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertName_et" />
 
     <EditText
-        android:id="@+id/ar_insertLinkedIn_et"
+        android:id="@+id/ape_insertLinkedIn_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -56,10 +56,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertOcupation_et"
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertOcupation_et"
         />
     <EditText
-        android:id="@+id/ar_insertGmail_et"
+        android:id="@+id/ape_insertGmail_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -69,10 +69,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertLinkedIn_et" />
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertLinkedIn_et" />
 
     <EditText
-        android:id="@+id/ar_insertGithub_et"
+        android:id="@+id/ape_insertGithub_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -82,10 +82,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertGmail_et"
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertGmail_et"
         />
     <EditText
-        android:id="@+id/ar_insertPassword_et"
+        android:id="@+id/ape_insertPassword_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -95,10 +95,10 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertGithub_et" />
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertGithub_et" />
 
     <Button
-        android:id="@+id/ar_confirm_bt"
+        android:id="@+id/ape_confirm_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -110,7 +110,7 @@
         app:strokeWidth="1dp"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
-        app:layout_constraintTop_toBottomOf="@+id/ar_insertPassword_et"
+        app:layout_constraintTop_toBottomOf="@+id/ape_insertPassword_et"
         />
 
     <androidx.constraintlayout.widget.Guideline

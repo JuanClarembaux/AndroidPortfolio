@@ -2,7 +2,9 @@ package com.example.portfolio.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -29,6 +31,9 @@ public class Login extends AppCompatActivity {
 
     private static final String TAG = "DATABASE";
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferencesEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,33 +44,43 @@ public class Login extends AppCompatActivity {
         userET=findViewById(R.id.al_insertUsername_et);
         passwordET=findViewById(R.id.al_insertPassword_et);
 
+        preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+        preferencesEditor = preferences.edit();
+
+        this.findViews();
+    }
+
+    private void obtenerDatos(){
+        DBUser DBUserRequest = new DBUser(userET.getText().toString(), passwordET.getText().toString());
+
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:3000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        obtenerDatos();
-
-
-        this.findViews();
-
-    }
-
-
-    private void obtenerDatos(){
         UserService userService = retrofit.create(UserService.class);
-        Call<DBUser> usuarioCall = userService.getUserById(3);
+        Call<DBUser> usuarioCall = userService.login(DBUserRequest);
 
         usuarioCall.enqueue(new Callback<DBUser>() {
             @Override
             public void onResponse(Call<DBUser> call, Response<DBUser> response) {
                 if (response.isSuccessful()){
-                    DBUser DBUser = response.body();
 
-                    Log.i(TAG, "  DBUser: " + DBUser.getNombreUsuario());
+                    preferencesEditor.putInt("idUsuario", response.body().getIdUsuario());
+                    preferencesEditor.putString("nombreUsuario", response.body().getNombreUsuario());
+                    preferencesEditor.putString("apellidoUsuario", response.body().getApellidoUsuario());
+                    preferencesEditor.putString("ocupacionUsuario", response.body().getOcupacionUsuario());
+                    preferencesEditor.putString("gmailUsuario", response.body().getGmailUsuario());
+                    preferencesEditor.putString("linkedinUsuario", response.body().getLinkedinUsuario());
+                    preferencesEditor.putString("githubUsuario", response.body().getGithubUsuario());
+                    preferencesEditor.putString("contrasenaUsuario", response.body().getContrasenaUsuario());
+                    preferencesEditor.commit();
+
+                    Intent intent = new Intent(getBaseContext(), Home.class);
+                    startActivity(intent);
                 }
                 else{
-                    Log.e(TAG, "  onResponse: " + response.errorBody());
+                    Toast.makeText(Login.this, "Usuario incorrecto", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -76,22 +91,9 @@ public class Login extends AppCompatActivity {
         });
     }
 
-
     private void findViews(){
         loginButton.setOnClickListener(view ->{
-
-            // ACA IRIA LA FUNCION QUE BUSCA EL USUARIO POR MAIL EN LA DB Y DEVUELVE SI EXISTE Y EL PASSWORD ES CORRECTO
-
-            //if(Objects.equals(usuario.nombreUsuario, userET.getText().toString()) && Objects.equals(usuario.contrasenaUsuario, passwordET.getText().toString()))
-            if(userET != null && passwordET != null)
-            {
-                Intent intent = new Intent(getBaseContext(), Home.class);
-                startActivity(intent);
-            }
-            else
-            {
-                Toast.makeText(this, "DBUser incorrecto", Toast.LENGTH_LONG).show();
-            }
+            obtenerDatos();
         });
         registerButton.setOnClickListener(view ->{
             Intent intent = new Intent(getBaseContext(), Register.class);

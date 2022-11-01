@@ -3,7 +3,9 @@ package com.example.portfolio.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +41,9 @@ public class AboutMe extends AppCompatActivity {
     private Retrofit retrofit;
     DBUser DBUser;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferencesEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,10 +57,8 @@ public class AboutMe extends AppCompatActivity {
         gmail=findViewById(R.id.aam_gmail_imageView);
         github=findViewById(R.id.aam_github_imageView);
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+        preferencesEditor = preferences.edit();
 
         obtenerDatos();
 
@@ -63,8 +66,15 @@ public class AboutMe extends AppCompatActivity {
     }
 
     private void obtenerDatos(){
+        DBUser DBUserRequest = new DBUser(this.preferences.getString("gmailUsuario", ""), this.preferences.getString("contrasenaUsuario", ""));
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:3000")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
         UserService userService = retrofit.create(UserService.class);
-        Call<DBUser> userCall = userService.getUserById(1); // BUSCAR POR MAIL DEL USUARIO
+        Call<DBUser> userCall = userService.login(DBUserRequest);
 
         userCall.enqueue(new Callback<DBUser>() {
             @Override

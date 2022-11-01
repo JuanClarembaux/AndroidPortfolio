@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_settings"
+        android:id="@+id/menu_profile"
         android:title="Settings"
         android:orderInCategory="100"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/user_profile_svgrepo_com"
         app:showAsAction="always"
     />
     <item
         android:id="@+id/menu_exit"
         android:title="Exit"
         android:orderInCategory="101"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/exit_svgrepo_com"
         app:showAsAction="always"
     />
 </menu>

@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.portfolio.R;
 
@@ -40,11 +40,13 @@ public class Home extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.menu_settings:
-                Intent intent = new Intent(getBaseContext(), AboutMe.class);
+            case R.id.menu_profile:
+                //Toast.makeText(Home.this, "perfil", Toast.LENGTH_LONG);
+                Intent intent = new Intent(getBaseContext(), ProfileEdit.class);
                 startActivity(intent);
             case R.id.menu_exit:
-                Intent i = new Intent(getBaseContext(), Project.class);
+                //Toast.makeText(this, "exit", Toast.LENGTH_LONG);
+                Intent i = new Intent(getBaseContext(), ProfileEdit.class);
                 startActivity(i);
         }
         return true;
