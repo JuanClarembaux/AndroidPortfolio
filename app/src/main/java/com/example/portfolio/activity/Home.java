@@ -44,10 +44,12 @@ public class Home extends AppCompatActivity {
                 //Toast.makeText(Home.this, "perfil", Toast.LENGTH_LONG);
                 Intent intent = new Intent(getBaseContext(), ProfileEdit.class);
                 startActivity(intent);
+                break;
             case R.id.menu_exit:
                 //Toast.makeText(this, "exit", Toast.LENGTH_LONG);
-                Intent i = new Intent(getBaseContext(), ProfileEdit.class);
+                Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                break;
         }
         return true;
     }

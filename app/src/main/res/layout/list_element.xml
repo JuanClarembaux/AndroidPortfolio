@@ -44,7 +44,7 @@
                 android:layout_toRightOf="@id/le_language_iv">
                 <TextView
                     android:id="@+id/le_repoName_tv"
-                    android:layout_width="match_parent"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
                     android:text="Nombre Repositorio"
@@ -53,14 +53,16 @@
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/le_repoCreated_tv"
-                    android:layout_width="match_parent"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:text="Fecha modificacion" />
+                    android:text="Fecha modificacion"
+                    android:textSize="13dp" />
                 <TextView
                     android:id="@+id/le_repoUpdated_tv"
-                    android:layout_width="match_parent"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:text="Fecha modificacion" />
+                    android:text="Fecha modificacion"
+                    android:textSize="13dp"/>
             </LinearLayout>
 
             <TextView
@@ -70,10 +72,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="2dp"
                 android:layout_marginRight="6dp"
                 android:text="Visibilidad"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>

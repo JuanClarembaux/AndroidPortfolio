@@ -8,9 +8,9 @@
 
     <EditText
         android:id="@+id/ape_insertSurname_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/round_edittext"
         android:hint="Ingrese apellido"
         android:textSize="24dp"
@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/ape_insertName_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
@@ -34,7 +34,7 @@
         />
     <EditText
         android:id="@+id/ape_insertOcupation_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
@@ -47,12 +47,12 @@
 
     <EditText
         android:id="@+id/ape_insertLinkedIn_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
         android:hint="Ingrese LinkedIn"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
@@ -60,12 +60,12 @@
         />
     <EditText
         android:id="@+id/ape_insertGmail_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
         android:hint="Ingrese Gmail"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
@@ -73,12 +73,12 @@
 
     <EditText
         android:id="@+id/ape_insertGithub_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
         android:hint="Ingrese Github"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/rightguideline"
         app:layout_constraintStart_toStartOf="@+id/leftguideline"
@@ -86,7 +86,7 @@
         />
     <EditText
         android:id="@+id/ape_insertPassword_et"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edittext"
@@ -101,7 +101,7 @@
         android:id="@+id/ape_confirm_bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/round_button"
         android:text="Confirmar"
         android:textSize="18dp"

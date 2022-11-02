@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,15 +21,17 @@ public class ListAdapterRepos extends RecyclerView.Adapter<ListAdapterRepos.View
     private ArrayList<GithubRepo> mData;
     private LayoutInflater mInflater;
     private Context context;
+    final ListAdapterRepos.OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(GithubRepo item);
     }
 
-    public ListAdapterRepos(ArrayList<GithubRepo> itemList, Context context) {
+    public ListAdapterRepos(ArrayList<GithubRepo> itemList, Context context, ListAdapterRepos.OnItemClickListener listener) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ListAdapterRepos extends RecyclerView.Adapter<ListAdapterRepos.View
         mData = items;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView le_language_iv;
         TextView repoName, repoCreated, nameUpdated, nameVisibility;
 
@@ -69,6 +69,12 @@ public class ListAdapterRepos extends RecyclerView.Adapter<ListAdapterRepos.View
         }
 
         void binData(final GithubRepo item) {
+            String[] partesCreated_at = item.getCreated_at().split("T");
+            String[] partesHoraCreated_at = partesCreated_at[1].split(":");
+
+            String[] partesUpdated_at = item.getUpdated_at().split("T");
+            String[] partesHoraUpdated_at = partesUpdated_at[1].split(":");
+
             if (Objects.equals(item.getLanguage(), "C#"))
                 le_language_iv.setImageResource(R.drawable.c_sharp_svgrepo_com);
             if (Objects.equals(item.getLanguage(), "Java"))
@@ -81,23 +87,16 @@ public class ListAdapterRepos extends RecyclerView.Adapter<ListAdapterRepos.View
                 le_language_iv.setImageResource(R.drawable.typescript_svgrepo_com);
 
             repoName.setText(item.getName());
-            repoCreated.setText(item.getCreated_at());
-            nameUpdated.setText(item.getUpdated_at());
+            repoCreated.setText("Creado:           " + partesCreated_at[0] + "  " + partesHoraCreated_at[0] + ":" + partesHoraCreated_at[1]);
+            nameUpdated.setText("Modificado:    " + partesUpdated_at[0] + "  " + partesHoraUpdated_at[0] + ":" + partesHoraUpdated_at[1]);
             if (Objects.equals(item.getVisibility(), "public")) nameVisibility.setText("Public");
-        }
 
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            Intent intent = new Intent(context, ProjectDetail.class);
-            intent.putExtra("name", mData.get(position).getName());
-            intent.putExtra("description", mData.get(position).getDescription());
-            intent.putExtra("html_url", mData.get(position).getHtml_url());
-            intent.putExtra("language", mData.get(position).getLanguage());
-            intent.putExtra("created_at", mData.get(position).getCreated_at());
-            intent.putExtra("updated_at", mData.get(position).getUpdated_at());
-            intent.putExtra("pushed_at", mData.get(position).getPushed_at());
-            context.startActivity(intent);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }

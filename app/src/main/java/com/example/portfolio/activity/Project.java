@@ -2,6 +2,7 @@ package com.example.portfolio.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridLayout;
 import android.widget.ListView;
 
 import com.example.portfolio.R;
@@ -30,7 +32,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Project extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class Project extends AppCompatActivity /*implements AdapterView.OnItemClickListener*/{
     private Retrofit retrofit;
 
     private ListAdapterRepos mAdapter;
@@ -57,10 +59,14 @@ public class Project extends AppCompatActivity implements AdapterView.OnItemClic
 
         obtenerDatosApi();
 
-        mAdapter = new ListAdapterRepos((ArrayList<GithubRepo>) listaRepos, this);
+        mAdapter = new ListAdapterRepos((ArrayList<GithubRepo>) listaRepos, this, new ListAdapterRepos.OnItemClickListener() {
+            @Override
+            public void onItemClick(GithubRepo item) {
+                moveToProjectDetails(item);
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.alr_list_rv);
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -106,6 +112,19 @@ public class Project extends AppCompatActivity implements AdapterView.OnItemClic
         getMenuInflater().inflate(R.menu.menu_context, menu);
     }
 
+    public void moveToProjectDetails(GithubRepo githubRepo){
+        Intent intent = new Intent(this, ProjectDetail.class);
+        intent.putExtra("name", githubRepo.getName());
+        intent.putExtra("description", githubRepo.getDescription());
+        intent.putExtra("html_url", githubRepo.getHtml_url());
+        intent.putExtra("language", githubRepo.getLanguage());
+        intent.putExtra("created_at", githubRepo.getCreated_at());
+        intent.putExtra("updated_at", githubRepo.getUpdated_at());
+        intent.putExtra("pushed_at", githubRepo.getPushed_at());
+        startActivity(intent);
+    }
+
+    /*
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item){
         int numero = item.getItemId();
@@ -128,6 +147,7 @@ public class Project extends AppCompatActivity implements AdapterView.OnItemClic
         intent.putExtra("created_at", mAdapter.getItem(position).getCreated_at());
         intent.putExtra("updated_at", mAdapter.getItem(position).getUpdated_at());
         intent.putExtra("pushed_at", mAdapter.getItem(position).getPushed_at());*/
-        startActivity(intent);
-    }
+        /*startActivity(intent);
+    }*/
+
 }

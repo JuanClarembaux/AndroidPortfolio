@@ -1,6 +1,8 @@
 package com.example.portfolio.model;
 
-public class GithubRepo {
+import java.io.Serializable;
+
+public class GithubRepo implements Serializable {
     public String name;                 // NOMBRE DEL REPOSITORIO
     public String full_name;            // NOMBRE DEL USUARIO + NOMBRE DEL REPOSITORIO
     public String html_url;             // URL DEL REPOSITORIO

@@ -19,12 +19,12 @@
 
     <EditText
         android:id="@+id/al_insertUsername_et"
-        android:layout_width="match_parent"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@drawable/round_edittext"
         android:hint="Insert Email"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/al_login_iv"
         android:layout_marginEnd="60dp"
@@ -34,12 +34,12 @@
 
     <EditText
         android:id="@+id/al_insertPassword_et"
-        android:layout_width="match_parent"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:background="@drawable/round_edittext"
         android:hint="Insert password"
-        android:textSize="24dp"
+        android:textSize="22dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/al_insertUsername_et"
         android:layout_marginEnd="60dp"

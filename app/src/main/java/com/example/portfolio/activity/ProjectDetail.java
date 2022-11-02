@@ -19,6 +19,14 @@ public class ProjectDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projectdetail);
 
+        String[] partesCreated_at = getIntent().getStringExtra("created_at").split("T");
+        String[] partesHoraCreated_at = partesCreated_at[1].split(":");
+
+        String[] partesUpdated_at = getIntent().getStringExtra("updated_at").split("T");
+        String[] partesHoraUpdated_at = partesUpdated_at[1].split(":");
+
+        String[] partesPushed_at = getIntent().getStringExtra("pushed_at").split("T");
+        String[] partesHoraPushed_at = partesPushed_at[1].split(":");
 
         TextView projectNameData = findViewById(R.id.ap_projectnameData_tv);
         projectNameData.setText(getIntent().getStringExtra("name"));
@@ -27,11 +35,11 @@ public class ProjectDetail extends AppCompatActivity {
         TextView projectLanguageData = findViewById(R.id.ap_languageData_tv);
         projectLanguageData.setText(getIntent().getStringExtra("language"));
         TextView projectCreatedAtData = findViewById(R.id.ap_createdAtData_tv);
-        projectCreatedAtData.setText(getIntent().getStringExtra("created_at"));
+        projectCreatedAtData.setText(partesCreated_at[0] + "  " + partesHoraCreated_at[0] + ":" + partesHoraCreated_at[1]);
         TextView projectUpdatedAtData = findViewById(R.id.ap_updatedAtData_tv);
-        projectUpdatedAtData.setText(getIntent().getStringExtra("updated_at"));
+        projectUpdatedAtData.setText(partesUpdated_at[0] + "  " + partesHoraUpdated_at[0] + ":" + partesHoraUpdated_at[1]);
         TextView projectPushedAtData = findViewById(R.id.ap_pushedAtData_tv);
-        projectPushedAtData.setText(getIntent().getStringExtra("pushed_at"));
+        projectPushedAtData.setText(partesPushed_at[0] + "  " + partesHoraPushed_at[0] + ":" + partesHoraPushed_at[1]);
         github_img = findViewById(R.id.ap_github_imageView);
 
         this.findViews();
