@@ -54,7 +54,8 @@ public class Login extends AppCompatActivity {
         DBUser DBUserRequest = new DBUser(userET.getText().toString(), passwordET.getText().toString());
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000")
+                //.baseUrl("http://10.0.2.2:3000")
+                .baseUrl("https://nodejsapigithub-production.up.railway.app")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

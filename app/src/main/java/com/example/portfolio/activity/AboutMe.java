@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.portfolio.R;
 import com.example.portfolio.model.DBUser;
@@ -69,7 +70,8 @@ public class AboutMe extends AppCompatActivity {
         DBUser DBUserRequest = new DBUser(this.preferences.getString("gmailUsuario", ""), this.preferences.getString("contrasenaUsuario", ""));
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000")
+                //.baseUrl("http://10.0.2.2:3000")
+                .baseUrl("https://nodejsapigithub-production.up.railway.app")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -100,24 +102,43 @@ public class AboutMe extends AppCompatActivity {
 
     private void findViews(){
         linkedin.setOnClickListener(view ->{
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(DBUser.getLinkedinUsuario()));
-            startActivity(intent);
+            try {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(DBUser.getLinkedinUsuario()));
+                startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(AboutMe.this, "Usuario de LinkedIn no especificado", Toast.LENGTH_LONG).show();
+                Log.e("ERROR", "onFailure: " + e.getMessage());
+            }
         });
         gmail.setOnClickListener(view ->{
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto:"));
-            intent.putExtra(Intent.EXTRA_EMAIL, DBUser.getGmailUsuario());
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
+            try {
+                if(DBUser.getGmailUsuario().equals("")){
+                    Toast.makeText(AboutMe.this, "Usuario de Gmail no especificado", Toast.LENGTH_LONG).show();
+                    return;
+                };
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, DBUser.getGmailUsuario());
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }catch (Exception e){
+                Toast.makeText(AboutMe.this, "Usuario de Gmail no especificado", Toast.LENGTH_LONG).show();
+                Log.e("ERROR", "onFailure: " + e.getMessage());
             }
         });
         github.setOnClickListener(view ->{
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(DBUser.getGithubUsuario()));
-            startActivity(intent);
+            try {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(DBUser.getGithubUsuario()));
+                startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(AboutMe.this, "Usuario de Github no especificado", Toast.LENGTH_LONG).show();
+                Log.e("ERROR", "onFailure: " + e.getMessage());
+            }
         });
     }
 
@@ -129,13 +150,25 @@ public class AboutMe extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item){
-        int numero = item.getItemId();
-        switch(numero){
-            case R.id.menu_context_back:
-                Intent intent = new Intent(getBaseContext(), Home.class);
-                startActivity(intent);
-                return true;
+        try {
+            int numero = item.getItemId();
+            switch(numero){
+                case R.id.menu_context_back:
+                    try {
+                        Intent intent = new Intent(getBaseContext(), Home.class);
+                        startActivity(intent);
+                        return true;
+                    }catch (Exception e){
+                        Toast.makeText(AboutMe.this, "Error al volver al Home", Toast.LENGTH_LONG).show();
+                        Log.e("ERROR", "onFailure: " + e.getMessage());
+                        return false;
+                    }
+            }
+            return super.onContextItemSelected(item);
+        }catch (Exception e){
+            Toast.makeText(AboutMe.this, "Error al seleccionar una opcion", Toast.LENGTH_LONG).show();
+            Log.e("ERROR", "onFailure: " + e.getMessage());
+            return false;
         }
-        return super.onContextItemSelected(item);
     }
 }

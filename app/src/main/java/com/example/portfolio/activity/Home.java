@@ -3,8 +3,11 @@ package com.example.portfolio.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +21,9 @@ public class Home extends AppCompatActivity {
     private Button projects;
     private Button aboutme;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferencesEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,9 @@ public class Home extends AppCompatActivity {
 
         projects=findViewById(R.id.ah_projects_bt);
         aboutme=findViewById(R.id.ah_aboutme_bt);
+
+        preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+        preferencesEditor = preferences.edit();
 
         this.findViews();
 
@@ -56,12 +65,26 @@ public class Home extends AppCompatActivity {
 
     private void findViews(){
         projects.setOnClickListener(view ->{
-            Intent intent = new Intent(getBaseContext(), Project.class);
-            startActivity(intent);
+            try {
+                if(this.preferences.getString("githubUsuario", "").equals("")){
+                    Toast.makeText(Home.this, "Usuario de Github no especificado", Toast.LENGTH_LONG).show();
+                    return;
+                };
+                Intent intent = new Intent(getBaseContext(), Project.class);
+                startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(Home.this, "Usuario de Github no especificado", Toast.LENGTH_LONG).show();
+                Log.e("ERROR", "onFailure: " + e.getMessage());
+            }
         });
         aboutme.setOnClickListener(view ->{
-            Intent intent = new Intent(getBaseContext(), AboutMe.class);
-            startActivity(intent);
+            try {
+                Intent intent = new Intent(getBaseContext(), AboutMe.class);
+                startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(Home.this, "Ocurrio un error", Toast.LENGTH_LONG).show();
+                Log.e("ERROR", "onFailure: " + e.getMessage());
+            }
         });
     }
 

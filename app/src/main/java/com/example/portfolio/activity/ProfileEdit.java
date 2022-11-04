@@ -60,12 +60,18 @@ public class ProfileEdit extends AppCompatActivity {
 
     private void findViews(){
         confirmButton.setOnClickListener(view -> {
+            if(name_ET.getText().toString().equals("") || surname_ET.getText().toString().equals("") || gmail_ET.getText().toString().equals("")
+                    || github_ET.getText().toString().equals("") || password_ET.getText().toString().equals("")){
+                Toast.makeText(ProfileEdit.this, "Complete los campos obligatorios ( * )", Toast.LENGTH_LONG).show();
+                return;
+            }
 
             DBUser DBUserRequest = new DBUser(name_ET.getText().toString(), surname_ET.getText().toString(), ocupation_ET.getText().toString(),
                     gmail_ET.getText().toString(), linkedin_ET.getText().toString(), github_ET.getText().toString(), password_ET.getText().toString());
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:3000")
+                    //.baseUrl("http://10.0.2.2:3000")
+                    .baseUrl("https://nodejsapigithub-production.up.railway.app")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UserService userService = retrofit.create(UserService.class);
