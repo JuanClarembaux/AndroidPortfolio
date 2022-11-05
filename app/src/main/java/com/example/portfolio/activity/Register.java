@@ -35,6 +35,8 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Registro");
 
         surname_ET = findViewById(R.id.ar_insertSurname_et);
         name_ET = findViewById(R.id.ar_insertName_et);

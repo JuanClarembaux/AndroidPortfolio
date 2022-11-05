@@ -18,6 +18,8 @@ public class ProjectDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projectdetail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Detalle de Proyecto");
 
         String[] partesCreated_at = getIntent().getStringExtra("created_at").split("T");
         String[] partesHoraCreated_at = partesCreated_at[1].split(":");

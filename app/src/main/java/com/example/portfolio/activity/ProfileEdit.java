@@ -40,6 +40,8 @@ public class ProfileEdit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Editar Perfil");
 
         surname_ET = findViewById(R.id.ape_insertSurname_et);
         name_ET = findViewById(R.id.ape_insertName_et);

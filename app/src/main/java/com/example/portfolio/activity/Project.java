@@ -47,6 +47,8 @@ public class Project extends AppCompatActivity /*implements AdapterView.OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Lista de Repositorios");
 
         preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
         preferencesEditor = preferences.edit();

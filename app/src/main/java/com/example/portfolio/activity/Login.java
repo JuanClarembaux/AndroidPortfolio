@@ -38,6 +38,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setTitle("Login");
 
         loginButton=findViewById(R.id.al_login_bt);
         registerButton=findViewById(R.id.al_register_bt);

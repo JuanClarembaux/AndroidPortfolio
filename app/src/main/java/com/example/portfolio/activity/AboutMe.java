@@ -50,6 +50,8 @@ public class AboutMe extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutme);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Acerca de mi");
 
         surname=findViewById(R.id.aam_surnameData_tv);
         name=findViewById(R.id.aam_nameData_tv);
