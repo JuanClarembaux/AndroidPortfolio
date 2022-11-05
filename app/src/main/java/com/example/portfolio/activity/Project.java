@@ -77,8 +77,13 @@ public class Project extends AppCompatActivity /*implements AdapterView.OnItemCl
 
     private void obtenerDatosApi() {
         String usuarioGithub = this.preferences.getString("githubUsuario", "");
-        String[] partesUsuarioGithub = usuarioGithub.split("/");
-        String nombreUsuarioGithub = partesUsuarioGithub[3];
+        String nombreUsuarioGithub;
+        if(usuarioGithub.contains("/")){
+            String[] partesUsuarioGithub = usuarioGithub.split("/");
+            nombreUsuarioGithub = partesUsuarioGithub[3];
+        }else{
+            nombreUsuarioGithub = usuarioGithub;
+        }
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com")

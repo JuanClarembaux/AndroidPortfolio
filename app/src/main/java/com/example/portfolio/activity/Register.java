@@ -52,6 +52,20 @@ public class Register extends AppCompatActivity {
 
     private void findViews(){
         confirmButton.setOnClickListener(view -> {
+            /*String usuarioGmail = gmail_ET.getText().toString();
+            String nombreUsuarioGmail;
+            if(usuarioGmail.contains(" ")){
+                String[] partesUsuarioGithub = usuarioGmail.split(" ");
+                nombreUsuarioGmail = partesUsuarioGithub[1];
+            }else{
+                nombreUsuarioGmail = usuarioGmail;
+            }*/
+
+            if(name_ET.getText().toString().contains(" ") || surname_ET.getText().toString().contains(" ") || gmail_ET.getText().toString().contains(" ")
+                    || github_ET.getText().toString().contains(" ") || password_ET.getText().toString().contains(" ")){
+                Toast.makeText(Register.this, "Complete los campos obligatorios ( * ) sin usar espacios", Toast.LENGTH_LONG).show();
+                return;
+            }
 
             if(name_ET.getText().toString().equals("") || surname_ET.getText().toString().equals("") || gmail_ET.getText().toString().equals("")
                     || github_ET.getText().toString().equals("") || password_ET.getText().toString().equals("")){
